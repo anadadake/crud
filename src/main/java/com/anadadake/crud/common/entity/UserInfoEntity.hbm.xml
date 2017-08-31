@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.anadadake.crud.common.entity.UserInfoEntity" table="t_user_info">
+ <!--       <id name="id">
+            <column name="ID" sql-type="int(11)"/>
+        </id>-->
+        <property name="userNo">
+            <column name="USER_NO" sql-type="varchar(15)" length="15" not-null="true"/>
+        </property>
+        <property name="userNameCn">
+            <column name="USER_NAME_CN" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="userNameEn">
+            <column name="USER_NAME_EN" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="gender">
+            <column name="GENDER" sql-type="varchar(15)" length="15" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

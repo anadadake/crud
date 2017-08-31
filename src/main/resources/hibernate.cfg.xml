@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--
+            <property name="connection.url"/>
+            <property name="connection.driver_class"/>
+            <property name="connection.username"/>
+            <property name="connection.password"/>
+        -->
+
+        <!--    <property name="connection.url">jdbc:mysql://hytest2014.mysql.rds.aliyuncs.com:3306/prometheus_2_7_2?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+            </property>-->
+<!--        <property name="connection.url">
+            jdbc:mysql://hytest2014.mysql.rds.aliyuncs.com:3306/prometheus_2_7_2?useUnicode=true&amp;characterEncoding=UTF-8
+        </property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.username">youmy_2_7_1</property>
+        <property name="connection.password">1qazxsw2!@#</property>-->
+
+
+        <property name="connection.url">jdbc:mysql://anadadake.mysql.rds.aliyuncs.com:3306/anadadake?useUnicode=true&amp;useSSL=true</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.username">db_user</property>
+        <property name="connection.password">12345678</property>
+        <!--<property name="connection.driver_class">com.mysql.jdbc.Driver</property>-->
+
+        <!--<property name="connection.url">jdbc:mysql://hytest2014.mysql.rds.aliyuncs.com:3306</property>-->
+        <!--<property name="connection.driver_class">com.mysql.jdbc.Driver</property>-->
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">4</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  -->
+        <!--<property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>-->
+
+        <!--以格式良好的方式显示SQL语句-->
+        <property name="format_sql">true</property>
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <!--只做校验-->
+        <property name="hbm2ddl.auto">update</property>
+        <mapping package="com.anadadake.crud.common.entity"/>
+
+
+        <mapping class="com.anadadake.crud.common.entity.DictionaryEntity"/>
+        <mapping class="com.anadadake.crud.common.entity.FunctionEntity"/>
+        <mapping class="com.anadadake.crud.common.entity.OrganizationEntity"/>
+        <mapping class="com.anadadake.crud.common.entity.RoleEntity"/>
+        <mapping class="com.anadadake.crud.common.entity.RoleFuncEntity"/>
+        <mapping class="com.anadadake.crud.common.entity.UserEntity"/>
+        <mapping class="com.anadadake.crud.common.entity.UserInfoEntity"/>
+        <mapping class="com.anadadake.crud.common.entity.UserOrgEntity"/>
+        <mapping class="com.anadadake.crud.common.entity.UserRoleEntity"/>
+
+       <!-- <mapping resource="com/anadadake/crud/common/entity/DictionaryEntity.hbm.xml"/>
+        <mapping resource="com/anadadake/crud/common/entity/FunctionEntity.hbm.xml"/>
+        <mapping resource="com/anadadake/crud/common/entity/OrganizationEntity.hbm.xml"/>
+        <mapping resource="com/anadadake/crud/common/entity/RoleEntity.hbm.xml"/>
+        <mapping resource="com/anadadake/crud/common/entity/RoleFuncEntity.hbm.xml"/>
+        <mapping resource="com/anadadake/crud/common/entity/UserEntity.hbm.xml"/>
+        <mapping resource="/com/anadadake/crud/common/entity/UserInfoEntity.hbm.xml"/>
+        <mapping resource="com/anadadake/crud/common/entity/UserOrgEntity.hbm.xml"/>
+        <mapping resource="com/anadadake/crud/common/entity/UserRoleEntity.hbm.xml"/>-->
+
+<!--        <mapping class="com.anadadake.crud.common.entity.DictionaryEntity"/>
+        <mapping resource="com/anadadake/crud/common/entity/DictionaryEntity.hbm.xml"/>
+        <mapping class="com.anadadake.crud.common.entity.FunctionEntity"/>
+        <mapping resource="com/anadadake/crud/common/entity/FunctionEntity.hbm.xml"/>
+        <mapping class="com.anadadake.crud.common.entity.OrganizationEntity"/>
+        <mapping resource="com/anadadake/crud/common/entity/OrganizationEntity.hbm.xml"/>
+        <mapping class="com.anadadake.crud.common.entity.RoleEntity"/>
+        <mapping resource="com/anadadake/crud/common/entity/RoleEntity.hbm.xml"/>
+        <mapping class="com.anadadake.crud.common.entity.RoleFuncEntity"/>
+        <mapping resource="com/anadadake/crud/common/entity/RoleFuncEntity.hbm.xml"/>
+        <mapping class="com.anadadake.crud.common.entity.UserEntity"/>
+        <mapping resource="com/anadadake/crud/common/entity/UserEntity.hbm.xml"/>
+        <mapping class="com.anadadake.crud.common.entity.UserInfoEntity"/>
+        <mapping resource="/com/anadadake/crud/common/entity/UserInfoEntity.hbm.xml"/>
+        <mapping class="com.anadadake.crud.common.entity.UserOrgEntity"/>
+        <mapping resource="com/anadadake/crud/common/entity/UserOrgEntity.hbm.xml"/>
+        <mapping class="com.anadadake.crud.common.entity.UserRoleEntity"/>
+        <mapping resource="com/anadadake/crud/common/entity/UserRoleEntity.hbm.xml"/>-->
+
+    </session-factory>
+</hibernate-configuration>

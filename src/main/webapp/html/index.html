@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script type="text/javascript">
+
+        function funcMain() {
+
+            console.log("funcMain start");
+            console.log("before funcA");
+            funcA();
+            console.log("after funcA");
+            console.log("before funcC");
+            funcC();
+            console.log("after funcC");
+        }
+
+        function funcA(){
+            console.log(" in funcA");
+            setTimeout("funcB()",5000);
+//        var t = setTimeout(alert("5s"),5000);
+        }
+        function funcB() {
+            console.log("funB");
+        }
+
+        function funcC(){
+            console.log("funC");
+
+        }
+    </script>
+</head>
+<body>
+
+<form>
+    <input type="button" onclick="funcMain()" value="调用函数">
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.anadadake.crud.common.entity.OrganizationEntity" table="t_organization">
+        <id name="id">
+            <column name="ID" sql-type="int(11)"/>
+        </id>
+        <property name="orgCode">
+            <column name="ORG_CODE" sql-type="varchar(15)" length="15"/>
+        </property>
+        <property name="isDeleted">
+            <column name="IS_DELETED" sql-type="tinyint(1)"/>
+        </property>
+        <property name="orgName">
+            <column name="ORG_NAME" sql-type="varchar(75)" length="75"/>
+        </property>
+        <property name="orgDesc">
+            <column name="ORG_DESC" sql-type="tinytext" not-null="true"/>
+        </property>
+        <property name="parentOrgCode">
+            <column name="PARENT_ORG_CODE" sql-type="varchar(15)" length="15" not-null="true"/>
+        </property>
+        <property name="orgSequence">
+            <column name="ORG_SEQUENCE" sql-type="tinyint(3)"/>
+        </property>
+        <property name="orgTypeCode">
+            <column name="ORG_TYPE_CODE" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="createUser">
+            <column name="CREATE_USER" sql-type="varchar(15)" length="15"/>
+        </property>
+        <property name="createTime">
+            <column name="CREATE_TIME" sql-type="datetime"/>
+        </property>
+        <property name="updateUser">
+            <column name="UPDATE_USER" sql-type="varchar(15)" length="15"/>
+        </property>
+        <property name="updateTime">
+            <column name="UPDATE_TIME" sql-type="timestamp"/>
+        </property>
+    </class>
+</hibernate-mapping>

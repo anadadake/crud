@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.anadadake.crud.common.entity.FunctionEntity" table="t_function">
+        <id name="id">
+            <column name="ID" sql-type="int(11)"/>
+        </id>
+        <property name="funcCode">
+            <column name="FUNC_CODE" sql-type="varchar(15)" length="15"/>
+        </property>
+        <property name="funcName">
+            <column name="FUNC_NAME" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="parentCode">
+            <column name="PARENT_CODE" sql-type="varchar(15)" length="15" not-null="true"/>
+        </property>
+        <property name="funcLevel">
+            <column name="FUNC_LEVEL" sql-type="tinyint(1)"/>
+        </property>
+        <property name="funcSequence">
+            <column name="FUNC_SEQUENCE" sql-type="tinyint(3)"/>
+        </property>
+        <property name="funcUrl">
+            <column name="FUNC_URL" sql-type="text" not-null="true"/>
+        </property>
+        <property name="isActive">
+            <column name="IS_ACTIVE" sql-type="tinyint(1)"/>
+        </property>
+        <property name="isShowInMenu">
+            <column name="IS_SHOW_IN_MENU" sql-type="tinyint(1)"/>
+        </property>
+        <property name="icon">
+            <column name="ICON" sql-type="tinytext" not-null="true"/>
+        </property>
+        <property name="isMobile">
+            <column name="IS_MOBILE" sql-type="tinyint(1)" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
