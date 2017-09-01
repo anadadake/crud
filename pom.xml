@@ -204,7 +204,7 @@
                     <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
                 </configuration>-->
                 <configuration>
-                    <warName>crud</warName>
+                    <!--<warName>crud</warName>-->
                     <resourceEncoding>${project.build.sourceEncoding}</resourceEncoding>
 
                     <webResources>
