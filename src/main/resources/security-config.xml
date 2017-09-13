@@ -1,0 +1,99 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/security
+          http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+    <security:http security="none" pattern="/login"/>
+    <security:http security="none" pattern="/logout"/>
+    <security:http auto-config="true">
+        <security:form-login login-page="/login"
+                             login-processing-url="login.do"
+                             username-parameter="username"
+                             password-parameter="password"
+                             default-target-url="/user/showInfo/000001.html"
+        />
+        <security:logout invalidate-session="true"/>
+        <security:intercept-url pattern="/**" access="ROLE_USER"/>
+    </security:http>
+
+
+
+
+
+
+    <!--<security:http auto-config="true">-->
+    <!--<security:intercept-url pattern="/**" access="ROLE_USER"></security:intercept-url>-->
+<!--</security:http>-->
+
+
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user name="user" password="user" authorities="ROLE_USER"  />
+                <security:user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN"  />
+            </security:user-service>
+        </security:authentication-provider>
+
+    </security:authentication-manager>
+
+
+</beans>
+
+
+
+
+
+
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans:beans xmlns="http://www.springframework.org/schema/security"-->
+             <!--xmlns:beans="http://www.springframework.org/schema/beans"-->
+             <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+             <!--xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd-->
+                                 <!--http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">-->
+
+    <!--<debug />-->
+    <!--<http security="none" pattern="/login.jsp" />-->
+    <!--<http security="none" pattern="/static/**" />-->
+    <!--<http use-expressions="true" auto-config="true">-->
+        <!--<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />-->
+
+        <!--&lt;!&ndash; 同一时间内允许同一账号保持4个在线,error-if-maximum-exceeded="true"表示第第四个以后的登不进去 &ndash;&gt;-->
+        <!--<session-management>-->
+            <!--<concurrency-control max-sessions="4" error-if-maximum-exceeded="true" />-->
+        <!--</session-management>-->
+        <!--&lt;!&ndash;<csrf disabled="true"/>&ndash;&gt;-->
+        <!--<form-login login-page="/login.jsp" authentication-failure-handler-ref="authenticationFailureHandlerImpl" authentication-success-handler-ref="authenticationSuccessHandlerImpl" />-->
+        <!--<logout logout-success-url="/logout.jsp" logout-url="logout" invalidate-session="true" delete-cookies="JSESSIONID" />-->
+    <!--</http>-->
+
+    <!--<authentication-manager>-->
+        <!--&lt;!&ndash; <authentication-provider> &ndash;&gt;-->
+        <!--&lt;!&ndash; <user-service> &ndash;&gt;-->
+        <!--&lt;!&ndash; <user name="admin" password="123" authorities="ROLE_USER"/> &ndash;&gt;-->
+        <!--&lt;!&ndash; </user-service> &ndash;&gt;-->
+        <!--&lt;!&ndash; </authentication-provider> &ndash;&gt;-->
+        <!--<authentication-provider user-service-ref="userService">-->
+            <!--<password-encoder hash="md5" />-->
+        <!--</authentication-provider>-->
+    <!--</authentication-manager>-->
+
+    <!--<beans:bean id="userService" class="com.anadadake.crud.common.web.service.UserAccessControllServiceImpl" />-->
+
+    <!--&lt;!&ndash; 认证成功调用  主要实现AuthenticationSuccessHandler这个类的onAuthenticationSuccess方法&ndash;&gt;-->
+    <!--<beans:bean id="authenticationSuccessHandlerImpl"-->
+                <!--class="com.**.utils.springsecurity.AuthenticationSuccessHandlerImpl">-->
+        <!--<beans:property name="url" value="/welcome.jsp" />-->
+    <!--</beans:bean>-->
+
+    <!--&lt;!&ndash; 认证失败调用 主要实现AuthenticationFailureHandler类的onAuthenticationFailure&ndash;&gt;-->
+    <!--<beans:bean id="authenticationFailureHandlerImpl"-->
+    <!--class="com.**.utils.springsecurity.AuthenticationFailureHandlerImpl">-->
+    <!--<beans:property name="errorUrl" value="/error.jsp" />-->
+    <!--</beans:bean>-->
+
+    <!--</beans:beans>-->

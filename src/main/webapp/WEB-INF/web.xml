@@ -9,7 +9,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring.xml,classpath:spring-hibernate.xml</param-value>
+        <param-value>classpath:spring.xml,classpath:spring-hibernate.xml,classpath:security-config.xml</param-value>
     </context-param>
 
     <filter>
@@ -39,6 +39,17 @@
             <param-value>true</param-value>
         </init-param>
     </filter>
+    <!--Spring security setting-->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
 
     <!-- 监听servletContext，启动contextConfigLocation中的spring配置信息 -->
     <listener>
@@ -49,6 +60,8 @@
     <listener>
         <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
     </listener>
+
+
 
     <servlet>
         <description>spring mvc servlet</description>
@@ -78,6 +91,6 @@
     </session-config>
 
     <welcome-file-list>
-        <welcome-file>/index.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
