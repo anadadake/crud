@@ -65,7 +65,7 @@
 
     <servlet>
         <description>spring mvc servlet</description>
-        <servlet-name>rest</servlet-name>
+        <servlet-name>springServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
@@ -76,7 +76,7 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>rest</servlet-name>
+        <servlet-name>springServlet</servlet-name>
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 
@@ -91,6 +91,6 @@
     </session-config>
 
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>/redirect.html</welcome-file>
     </welcome-file-list>
 </web-app>
